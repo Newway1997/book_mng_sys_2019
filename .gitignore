@@ -7,7 +7,7 @@ front-end/yarn-error.log*
 /front-end/test/unit/coverage/
 /front-end/test/e2e/reports/
 front-end/selenium-debug.log
-
+/target/
 # Editor directories and files
 .idea
 .vscode
