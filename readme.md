@@ -114,12 +114,13 @@
    | return_date | datetime | | 否 | 出版社 |
    | fine | decimal | 10| | 出版时间 |
    |status|int|11|否|借阅状态 0 为未完成，1 为已完成|
-   四、技术栈
+
+## 四、技术栈
 
 - 后端：java+Spring+SpringMVC+Mybatis
 - 前端：VueJs+Element
 
-五、后端设计
+## 五、后端设计
 
 1. 实体层
    - User.java :
@@ -178,7 +179,7 @@
    - ReaderController
    - AdminController
 
-六、 API
+## 六、 API
 
 1. 用户操作
 
