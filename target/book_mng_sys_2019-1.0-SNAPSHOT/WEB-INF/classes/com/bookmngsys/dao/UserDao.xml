@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bookmngsys.dao.UserDao">
+    <select id="getUser" parameterType="String"  resultType="com.bookmngsys.po.User" >
+    select * from user where username = #{username} and password=#{password} and status=1
+    </select>
+    <select id="getUserByName" parameterType="String"  resultType="com.bookmngsys.po.User" >
+    select * from user where username = #{username}
+    </select>
+    <insert id="insertUser" parameterType="com.bookmngsys.po.User">
+        insert into user (username,password,type,status) values (#{username},#{password},#{type},#{status})
+    </insert>
+    <update id="updatePass">
+        update user set password=#{param2} where id=#{param1}
+    </update>
+    <update id="updateUserStatus">
+        update user set status=#{param2} where id=#{param1}
+    </update>
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bookmngsys.dao.ReaderDao">
+    <select id="getReader" parameterType="int"  resultType="com.bookmngsys.po.Reader" >
+    select * from reader where id = #{id}
+    </select>
+    <update id="updateReader" parameterType="com.bookmngsys.po.Reader">
+        UPDATE reader SET name = #{name},age=#{age},sex=#{sex},phone=#{phone} WHERE id = #{id}
+    </update>
+    <select id="getReaders" resultType="com.bookmngsys.po.Reader">
+        select a.*,b.username,b.status from reader a,user b where a.id=b.id LIMIT #{param1},#{param2}  ;
+    </select>
+</mapper>

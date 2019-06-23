@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bookmngsys.dao.BorrowBookDao">
+<insert id="insertBorrowBook" parameterType="com.bookmngsys.po.BorrowBook">
+    insert into borrow_book (isbn,reader_id,borrow_date,return_date,fine,status) values (#{book.isbn},${reader.id},#{borrowDate},#{returnDate},#{fine},#{status});
+</insert>
+    <select id="getBorrowBooks" parameterType="int" resultMap="borrowBook">
+        select a.*,b.book_name,b.author,b.publisher,b.img_url from borrow_book a,book b where a.isbn=b.isbn and a.reader_id=#{id} and a.status=1
+    </select>
+    <resultMap id="borrowBook" type="com.bookmngsys.po.BorrowBook">
+        <id column="id" property="id"/>
+        <result column="isbn" property="book.isbn"/>
+        <result column="book_name" property="book.bookName"/>
+        <result column="author" property="book.author"/>
+        <result column="publisher" property="book.publisher"/>
+        <result column="img_url" property="book.imgUrl"/>
+        <result column="reader_id" property="reader.id"/>
+        <result column="borrow_date" property="borrowDate"/>
+        <result column="return_date" property="returnDate"/>
+        <result column="fine" property="fine"/>
+        <result column="status" property="status"/>
+
+    </resultMap>
+
+    <update id="updateBorrowBookStatus">
+        update borrow_book SET status = 0 WHERE id = #{param1} and reader_id=#{param2}
+    </update>
+</mapper>

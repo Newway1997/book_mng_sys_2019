@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bookmngsys.dao.BookDao">
+    <select id="getBooks"  resultType="com.bookmngsys.po.Book">
+      select * from book where status=1 LIMIT #{param1},#{param2}  ;
+    </select>
+    <select id="getAllBooks"  resultType="com.bookmngsys.po.Book">
+      select * from book LIMIT #{param1},#{param2}  ;
+    </select>
+    <select id="getBook"  resultType="com.bookmngsys.po.Book">
+      select * from book where isbn=#{isbn} ;
+    </select>
+    <update id="updateBookNum" parameterType="String">
+      UPDATE book SET last_num=last_num-1 WHERE isbn = #{isbn} and last_num>0
+    </update>
+    <update id="updateBookNum2" parameterType="String">
+      UPDATE book SET last_num=last_num+1 WHERE isbn = #{isbn}
+    </update>
+    <update id="updateBookStatus">
+        update book set status=#{param2} where isbn=#{param1}
+    </update>
+    <select id="getCategory"  resultType="com.bookmngsys.po.Category">
+      select * from category;
+    </select>
+    <insert id="insertBook" parameterType="com.bookmngsys.po.Book">
+        insert into book (isbn, category_Id, book_name, author, publisher, publish_date,unit_price, img_url,summary, all_num, tags, last_num, status) values ( #{isbn}, #{categoryId},#{bookName}, #{author}, #{publisher}, #{publishDate},#{unitPrice}, #{imgUrl},#{summary}, #{allNum}, #{tags}, #{lastNum}, #{status})
+    </insert>
+    <update id="updateBook" >
+<if test="param2.imgUrl.isEmpty()">
+
+</if>
+UPDATE book SET isbn=#{param2.isbn} ,category_Id=#{param2.categoryId},book_name=#{param2.bookName},author=#{param2.author},publish_date=#{param2.publishDate},unit_price=#{param2.unitPrice},summary=#{param2.summary}, all_num=#{param2.allNum}, tags=#{param2.tags}, last_num=#{param2.lastNum}, status=#{param2.status}
+    <if test="!param2.imgUrl.isEmpty()"> ,img_url=#{param2.imgUrl}</if>
+    WHERE isbn = #{param1}
+
+
+    </update>
+</mapper>
