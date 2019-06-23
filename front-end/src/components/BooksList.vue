@@ -4,7 +4,7 @@
   <el-row v-for="(books,index) in showBooks" :key="index">
     <el-col :span="4" v-for="(book,index) in books" :key="book.isbn" :offset="index > 0 ?  1 : 0">
       <el-card :body-style="{ padding: '0px' }">
-        <img :src="'/static/img/'+book.imgUrl" class="image">
+        <img :src="baseUrl+book.imgUrl" class="image">
         <div style="padding: 14px;text-align:left">
           <span>{{book.bookName}}</span>
           <div class="bottom clearfix">
@@ -59,7 +59,8 @@
 export default {
   data() {
     return {
-      books: []
+      books: [],
+      baseUrl:this.$store.state.origin+'/img/'
     };
   },
   computed: {

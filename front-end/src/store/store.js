@@ -4,7 +4,8 @@ Vue.use(Vuex)
 let store = new Vuex.Store({
   state: {
     isLogin: false,
-    origin:"http://localhost:8080"
+    origin:"http://112.74.35.49:8080/book_mng_sys_2019"
+    // origin:"http://localhost:8080"
   },
   mutations: {
     userLogin (state) {

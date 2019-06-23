@@ -160,7 +160,8 @@ public class BookController {
         int lastNum=allNum;
         Book book=new Book(isbn, Integer.parseInt(categoryId),"", bookName, author, publisher, new Date(publishDate),Float.parseFloat(unitPrice), imgUrl,summary, allNum, tags, lastNum, status);
         bookService.addBook(book);
-        String path="E:\\WorkSpace\\book_mng_sys_2019\\front-cli\\static\\img\\"+file.getOriginalFilename();
+
+        String path=request.getSession().getServletContext().getRealPath("/img/")+file.getOriginalFilename();
         try{
             file.transferTo(new File(path));
         }catch (IOException ex){
@@ -204,7 +205,7 @@ public class BookController {
         bookService.updateBook(originIsbn,book);
 
         if(file!=null){
-            String path="E:\\WorkSpace\\book_mng_sys_2019\\front-cli\\static\\img\\"+file.getOriginalFilename();
+            String path=request.getSession().getServletContext().getRealPath("/img/")+file.getOriginalFilename();
             try{
                 file.transferTo(new File(path));
             }catch (IOException ex){

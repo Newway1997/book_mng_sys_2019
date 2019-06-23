@@ -2,7 +2,7 @@
   <el-row>
     <el-col :span="4" :offset="3">
       <el-card :body-style="{ padding: '0px' }">
-        <img :src="'/static/img/'+book.imgUrl" class="image">
+        <img :src="baseUrl+book.imgUrl" class="image">
         <div style="padding: 14px;text-align:left">
           <span>{{book.bookName}}</span>
           <div class="bottom clearfix">
@@ -32,7 +32,7 @@ import { setTimeout } from 'timers';
 export default {
   name: "BorrowBook",
   data() {
-    return { book: {} };
+    return { book: {},baseUrl:this.$store.state.origin+'/img/' };
   },
   methods: {
     getBook(id) {
