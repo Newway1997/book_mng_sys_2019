@@ -92,7 +92,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>5.1.4.RELEASE</version>
+      <version>5.2.0.RELEASE</version>
     </dependency>
     <!--MyBatis所需jar包13个-->
     <!-- https://mvnrepository.com/artifact/org.apache.ant/ant -->
