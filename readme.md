@@ -8,7 +8,7 @@
 请访问[http://112.74.35.49:8002](http://112.74.35.49:8002)
 用户测试账号：user,密码:123456
 管理员测试账号:admin,密码:123456
-
+数据库建表sql文件：book_store_2019.sql
 ## 三、技术栈
 
 - 后端：java+Spring+SpringMVC+Mybatis
