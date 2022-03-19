@@ -1,5 +1,7 @@
 # 图书管理系统设计文档
 
+本项目已用springboot+datajpa+vue3+typescript+element-plus重构，详情可看 [book_mng_sys_2022](https://github.com/Newway1997/book_mng_sys_2022)
+
 ## 一、简介
 
 图书借阅是学生获取知识的一个很重要的途径，如何既能方便学生借书，又能减轻图书馆管理人员的工作负担，高效地完成图书借阅管理工作，是一件非常重要的事情。web 图书管理系统可以使图书借阅更加方便和快捷。
