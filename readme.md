@@ -1,6 +1,6 @@
 # 图书管理系统设计文档
 
-本项目已用springboot+datajpa+vue3+typescript+element-plus重构，详情可看 [book_mng_sys_2022](https://github.com/Newway1997/book_mng_sys_2022)
+**本项目已用springboot+datajpa+vue3+typescript+element-plus重构，详情可看 [book_mng_sys_2022](https://github.com/Newway1997/book_mng_sys_2022)**
 
 ## 一、简介
 
